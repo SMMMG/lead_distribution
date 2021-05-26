@@ -1,0 +1,1 @@
+package fr.mmo.lead.management.configuration;
