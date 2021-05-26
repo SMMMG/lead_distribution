@@ -2,6 +2,7 @@ package fr.mmo.lead.management.domain.entities;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,11 +23,12 @@ public class Lead {
     @CreationTimestamp
     private LocalDateTime createDateTime;
 
-    // @UpdateTimestamp
-    // private LocalDateTime updateDateTime;
+    /*
+     * @UpdateTimestamp // private LocalDateTime updateDateTime;
+     */
 
-    @OneToOne
-    @JoinColumn(name = "person_fk")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "person_fk", referencedColumnName = "id")
     private Person person;
 
     private int nombreEmprunteur;
